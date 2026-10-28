@@ -1,0 +1,20 @@
+{
+	"/": [
+		"src/routes/+layout.js"
+	],
+	"/kb": [
+		"src/routes/+layout.js"
+	],
+	"/kb/decisions/0001-dedupe-by-subject": [
+		"src/routes/+layout.js"
+	],
+	"/kb/incidents/4471-split": [
+		"src/routes/+layout.js"
+	],
+	"/kb/incidents/4471": [
+		"src/routes/+layout.js"
+	],
+	"/kb/triage/dedupe": [
+		"src/routes/+layout.js"
+	]
+}
