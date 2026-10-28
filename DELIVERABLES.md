@@ -12,7 +12,7 @@ Support ticket #4471 merged 412 date reports as one issue. They are three proble
 
 - The .svx: [`src/routes/kb/incidents/4471-split/+page.svx`](src/routes/kb/incidents/4471-split/+page.svx)
 - The page as the desk will see it: [`4471-split.png`](4471-split.png) · [`4471-split.html`](4471-split.html)
-- Signed: Marcin Ziętek · desk ref **DR-14WK-ANBH**
+- Signed with the course ticket · desk ref **DR-GQNM-1GY7**
 
 ![the page as the desk will see it](4471-split.png)
 

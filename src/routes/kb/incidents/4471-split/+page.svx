@@ -4,7 +4,7 @@ title: '#4471 · three problems, not one'
 owner: zietek
 status: open
 reviewed: 2026-10-28
-signature: Marcin Ziętek
+signature: v1.eyJzdWIiOiIxMzczIiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTMxOTE1NDMsImV4cCI6MTc5MzI3Nzk0M30.V2RGvkPs--V_2Xeh5c8By3HI18g63ZOeeTHUYyj7ukE
 ---
 
 <script>
