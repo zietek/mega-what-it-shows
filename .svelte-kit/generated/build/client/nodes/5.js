@@ -1,1 +1,0 @@
-export { default as component } from "../../../../../src/routes/kb/incidents/4471-split/+page.svx";

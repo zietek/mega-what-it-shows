@@ -1,1 +1,0 @@
-export { default as component } from "../../../../../src/routes/kb/decisions/0001-dedupe-by-subject/+page.svx";
