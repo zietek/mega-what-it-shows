@@ -29,7 +29,7 @@ subject, it is three problems with three fixes. Each now has its own ticket.
 
 **`parser`: day and month swapped.** The shared parser reads every date month first, and every
 tenant on file writes the day first. "4 March turned into 3 April." This is the bug #4471 names,
-and the fix queued for it covers only this row.
+and the fix shipped for it covers only this row.
 
 **`hint`: the booking-v3 form.** booking-v3 prints `MM/DD/YYYY` under its date field. People type
 what it says, and the form reads their date day first. Same symptom, a swap, but it only comes
@@ -40,8 +40,19 @@ two people in different time zones see different days for the same meeting. That
 handling, not to date order. The desk had already listed them in `desk-notes.json`. They stay
 counted under `parser`, where the desk files them by tenant, and now have a ticket of their own.
 
+## Where each one stands
+
+#4471 closed on 5 October with two outcomes. They cover two of the three problems.
+
+| problem | outcome | ticket |
+| --- | --- | --- |
+| `parser` | fixed: `fix(dates): parse dd/mm for eu locales` | closed |
+| `hint` | won't fix: booking-v3 form retired | closed |
+| `one-day move` | nothing yet | **open** |
+
 <Callout kind="warn">
-#4471 is not "one issue, one fix queued". Shipping the parser fix leaves the other two rows open.
+Closing #4471 did not close the one-day move. Neither fix touches it: it is no swap, and it does
+not come through the retired form. Keep its ticket open until engineering takes it.
 </Callout>
 
 ## Why they were merged
