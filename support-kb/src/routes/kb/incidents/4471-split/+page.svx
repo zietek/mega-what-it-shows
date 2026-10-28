@@ -4,7 +4,7 @@ title: '#4471 · three problems, not one'
 owner: zietek
 status: open
 reviewed: 2026-10-28
-signature: zietek
+signature: Marcin Ziętek
 ---
 
 <script>
