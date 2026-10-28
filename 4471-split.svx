@@ -1,0 +1,72 @@
+---
+layout: runbook
+title: '#4471 · three problems, not one'
+owner: zietek
+status: open
+reviewed: 2026-10-28
+signature: Marcin Ziętek
+---
+
+<script>
+  import ProblemTable from '#lib/kb/ProblemTable.svelte';
+  import Callout from '#lib/kb/Callout.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+
+  const issues = {
+    parser: 'https://github.com/zietek/mega-what-it-shows/issues/1',
+    hint: 'https://github.com/zietek/mega-what-it-shows/issues/2',
+    'one-day move': 'https://github.com/zietek/mega-what-it-shows/issues/3',
+  };
+</script>
+
+[#4471](/kb/incidents/4471) holds every report about dates since April, merged on subject line
+([decision 0001](/kb/decisions/0001-dedupe-by-subject)). Read by what the reports show, not by their
+subject, it is three problems with three fixes. Each now has its own ticket.
+
+<ProblemTable ticket={4471} {issues} />
+
+## The three problems
+
+**`parser`: day and month swapped.** The shared parser reads every date month first, and every
+tenant on file writes the day first. "4 March turned into 3 April." This is the bug #4471 names,
+and the fix shipped for it covers only this row.
+
+**`hint`: the booking-v3 form.** booking-v3 prints `MM/DD/YYYY` under its date field. People type
+what it says, and the form reads their date day first. Same symptom, a swap, but it only comes
+through the form at the three booking-v3 tenants, and the parser fix does not touch it.
+
+**`one-day move`: off by one day.** These are no swap at all. A date moves by exactly one day, or
+two people in different time zones see different days for the same meeting. That points to time zone
+handling, not to date order. The desk had already listed them in `desk-notes.json`. They stay
+counted under `parser`, where the desk files them by tenant, and now have a ticket of their own.
+
+## Where each one stands
+
+#4471 closed on 5 October with two outcomes. They cover two of the three problems.
+
+| problem | outcome | ticket |
+| --- | --- | --- |
+| `parser` | fixed: `fix(dates): parse dd/mm for eu locales` | closed |
+| `hint` | won't fix: booking-v3 form retired | closed |
+| `one-day move` | nothing yet | **open** |
+
+<Callout kind="warn">
+Closing #4471 did not close the one-day move. Neither fix touches it: it is no swap, and it does
+not come through the retired form. Keep its ticket open until engineering takes it.
+</Callout>
+
+## Why they were merged
+
+- Decision 0001 merges on subject alone. All three problems produce the same subjects ("Wrong day
+  on the invite"), so subject matching cannot tell them apart.
+- Intake tags (`meta.intakeTag`) come from the reporter's browser and disagree with the cause in
+  both directions. The cause comes from the tenant: their locale, their booking form, and the
+  channel the report came through.
+
+## What to do next time
+
+- Before merging into a big ticket, check the cause with the [triage explorer](/kb/triage/dedupe),
+  not the subject.
+- A report that is no swap (one day off, differs by place) is a different problem. Give it a ticket.
+
+<RenderStamp {signature} />
