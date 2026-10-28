@@ -37,8 +37,8 @@ through the form at the three booking-v3 tenants, and the parser fix does not to
 
 **`one-day move`: off by one day.** These are no swap at all. A date moves by exactly one day, or
 two people in different time zones see different days for the same meeting. That points to time zone
-handling, not to date order. The desk had already listed them in `desk-notes.json`; the cause
-table filed them under `parser` by tenant, so nobody counted them.
+handling, not to date order. The desk had already listed them in `desk-notes.json`. They stay
+counted under `parser`, where the desk files them by tenant, and now have a ticket of their own.
 
 <Callout kind="warn">
 #4471 is not "one issue, one fix queued". Shipping the parser fix leaves the other two rows open.
